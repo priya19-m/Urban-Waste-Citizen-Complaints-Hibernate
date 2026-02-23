@@ -40,7 +40,6 @@ public class WasteService {
         if (citizen.getMobile() == null || !citizen.getMobile().matches("\\d{10,15}"))
             throw new ValidationException();
 
-        // Check if citizen already exists
         if (citizenDAO.findCitizen(citizen.getCitizenID()) != null)
             return false;
 
@@ -65,7 +64,6 @@ public class WasteService {
         row.setVehicleNo(vehicleNo);
         row.setCrewShift(crewShift);
 
-        // generateServiceRowID thevai illai, Bean-la @GeneratedValue automatic-aa id tharum
         return wasteserviceDAO.insertServiceRow(row);
     }
 

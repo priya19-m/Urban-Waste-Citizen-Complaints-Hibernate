@@ -38,9 +38,9 @@ public class Citizen {
     private String email;
 
     @Column(name = "status")
-    private String status = "ACTIVE"; // Unga friend code maari default set panniruken
+    private String status = "ACTIVE"; 
 
-    // Getters and Setters (Same as before)
+   
     public String getCitizenID() { return citizenID; }
     public void setCitizenID(String citizenID) { this.citizenID = citizenID; }
     public String getFullName() { return fullName; }

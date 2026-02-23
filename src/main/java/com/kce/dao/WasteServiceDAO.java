@@ -9,7 +9,7 @@ import java.util.List;
 
 public class WasteServiceDAO {
 
-    // Sequence generation is handled by @GeneratedValue in Bean
+    
     public boolean insertServiceRow(WasteServiceRow row) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {

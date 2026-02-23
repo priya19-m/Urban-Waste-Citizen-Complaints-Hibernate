@@ -13,7 +13,7 @@ import java.sql.Date;
 public class WasteServiceRow {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Database automatically handles ID
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
     @Column(name = "service_row_id")
     private int serviceRowID;
 

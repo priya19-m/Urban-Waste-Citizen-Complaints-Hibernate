@@ -13,7 +13,7 @@ import com.kce.util.ComplaintStatusException;
 public class WasteMain {
 
     public static void main(String[] args) {
-        // Initialize Hibernate Session Factory
+       
         HibernateUtil.getSessionFactory();
 
         Scanner sc = new Scanner(System.in);
@@ -38,7 +38,7 @@ public class WasteMain {
                 sc.next();
             }
             choice = sc.nextInt();
-            sc.nextLine(); // consume newline
+            sc.nextLine(); 
 
             try {
                 switch (choice) {
