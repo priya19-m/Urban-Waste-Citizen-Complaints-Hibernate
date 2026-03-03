@@ -1,0 +1,53 @@
+CREATE TABLE Citizen_TBL(
+Citizen_ID VARCHAR2(10) PRIMARY KEY,
+Full_Name VARCHAR2(150), 
+House_No VARCHAR2(50),
+Street_Name VARCHAR2(150),
+Area VARCHAR2(150),
+Ward_CodE VARCHAR2(10),
+Route_Code VARCHAR2(10),
+Mobile VARCHAR2(20),
+Email VARCHAR2(120),
+Status VARCHAR2(20)
+);
+
+INSERT INTO Citizen_TBL VALUES ('CT1001', 'Rahul Mehta', 'Flat2B', 'GreenResidencyRoad', 'LakshmiNagar', 'WARD12', 'RT05', '9876500001', 'rahul.mehta@example.com', 'ACTIVE');
+INSERT INTO Citizen_TBL VALUES ('CT1002', 'Priya Sharma', 'No.10', 'LakeViewStreet', 'KaveriNagar', 'WARD08', 'RT03', '9876500002', 'priya.sharma@example.com', 'ACTIVE');
+INSERT INTO Citizen_TBL VALUES ('CT1003', 'Arjun Nair', 'House 5', 'RiverViewLane', 'St.Mary Colony', 'WARD05', 'RT02', '9876500003', 'arjun.nair@example.com', 'INACTIVE');
+
+SELECT * FROM Citizen_TBL;
+
+DESC Citizen_TBL;
+
+
+
+
+CREATE TABLE WASTE_SERVICE_TBL(
+    Service_Row_ID Number(10) PRIMARY KEY,
+    Citizen_ID VARCHAR2(10),
+    Service_Type VARCHAR2(20) CHECK (Service_Type IN ('SCHEDULED_VISIT','COMPLAINT')),
+    Ward_Code VARCHAR2(10),
+    Route_Code VARCHAR2(10),
+    Scheduled_Date DATE,
+    Vehicle_No VARCHAR2(20),
+    Crew_Shift VARCHAR2(20),
+    Complaint_Date DATE,
+    Complaint_Type VARCHAR2(50),
+    Complaint_Description VARCHAR2(400),
+    Priority_Level VARCHAR2(20),
+    Complaint_Status VARCHAR2(20),
+    Closure_Remarks VARCHAR2(400),
+    CONSTRAINT fk_citizen_id FOREIGN KEY (Citizen_ID)
+        REFERENCES CITIZEN_TBL(Citizen_ID)
+);
+
+SELECT * FROM WASTE_SERVICE_TBL;
+
+
+
+
+CREATE SEQUENCE SERVICE_ROW_SEQU
+START WITH 1000
+MINVALUE 1000
+MAXVALUE 9999
+INCREMENT BY 1;
