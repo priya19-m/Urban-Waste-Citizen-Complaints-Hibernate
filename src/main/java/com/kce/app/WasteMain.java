@@ -34,7 +34,7 @@ public class WasteMain {
             System.out.print("Enter choice: ");
 
             while (!sc.hasNextInt()) {
-                System.out.println("❌ Invalid input! Please enter a number (1-7).");
+                System.out.println("Invalid input! Please enter a number (1-7).");
                 sc.next();
             }
             choice = sc.nextInt();
@@ -64,7 +64,7 @@ public class WasteMain {
                         if (service.registerNewCitizen(c))
                             System.out.println("✅ Citizen Registered Successfully!");
                         else
-                            System.out.println("❌ Registration Failed!");
+                            System.out.println("Registration Failed!");
                         break;
 
                     case 2:
@@ -80,9 +80,9 @@ public class WasteMain {
                         java.sql.Date today = new java.sql.Date(System.currentTimeMillis());
                         
                         if (service.logScheduledVisit(ward, route, today, vNo, shift))
-                            System.out.println("✅ Visit Logged Successfully!");
+                            System.out.println("Visit Logged Successfully!");
                         else
-                            System.out.println("❌ Failed to Log Visit.");
+                            System.out.println("Failed to Log Visit.");
                         break;
 
                     case 3:
@@ -98,9 +98,9 @@ public class WasteMain {
                         java.sql.Date cDate = new java.sql.Date(System.currentTimeMillis());
 
                         if (service.registerComplaint(cid, type, desc, priority, cDate, null))
-                            System.out.println("✅ Complaint Registered!");
+                            System.out.println("Complaint Registered!");
                         else
-                            System.out.println("❌ Registration Failed (Check Citizen ID/Status).");
+                            System.out.println("Registration Failed (Check Citizen ID/Status).");
                         break;
 
                     case 4:
@@ -112,9 +112,9 @@ public class WasteMain {
                         String remarks = sc.nextLine();
 
                         if (service.updateComplaintStatus(rid, status, remarks))
-                            System.out.println("✅ Status Updated!");
+                            System.out.println("Status Updated!");
                         else
-                            System.out.println("❌ Update Failed.");
+                            System.out.println("Update Failed.");
                         break;
 
                     case 5:
@@ -129,9 +129,9 @@ public class WasteMain {
                         System.out.print("Enter Citizen ID to deactivate: ");
                         String dcid = sc.nextLine();
                         if (service.deactivateOrRemoveCitizen(dcid))
-                            System.out.println("✅ Citizen deactivated.");
+                            System.out.println("Citizen deactivated.");
                         else
-                            System.out.println("❌ Deactivation failed.");
+                            System.out.println("Deactivation failed.");
                         break;
 
                     case 7:
@@ -143,13 +143,13 @@ public class WasteMain {
                         System.out.println("Invalid Choice!");
                 }
             } catch (ValidationException e) {
-                System.out.println("⚠ Input Error: Please provide valid details.");
+                System.out.println("Input Error: Please provide valid details.");
             } catch (ActiveComplaintsExistException e) {
-                System.out.println("⚠ Cannot deactivate: Citizen has open complaints.");
+                System.out.println("Cannot deactivate: Citizen has open complaints.");
             } catch (ComplaintStatusException e) {
-                System.out.println("⚠ Error: Invalid complaint ID or already closed.");
+                System.out.println("Error: Invalid complaint ID or already closed.");
             } catch (Exception e) {
-                System.out.println("⚠ System Error: " + e.getMessage());
+                System.out.println("System Error: " + e.getMessage());
             }
 
         } while (choice != 7);

@@ -1,5 +1,4 @@
 package com.kce.dao;
-
 import com.kce.bean.WasteServiceRow;
 import com.kce.util.HibernateUtil;
 import org.hibernate.Session;
@@ -8,8 +7,6 @@ import org.hibernate.query.Query;
 import java.util.List;
 
 public class WasteServiceDAO {
-
-    
     public boolean insertServiceRow(WasteServiceRow row) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
